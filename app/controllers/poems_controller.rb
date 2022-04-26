@@ -15,6 +15,10 @@ def create
   end
 end
 
+def edit
+  @poem = Poem.find_by id: params[:id]
+end
+
 private
 
 def poem_params
