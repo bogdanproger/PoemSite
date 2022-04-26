@@ -3,5 +3,5 @@
   <h2><%= poem.title%></h2>
   <p><%= poem.body%></p>
   <br>
-  <%= link_to 'Edit', edit_poem_path(poem) %>
+  <%= link_to 'Edit', edit_poem_path(poem.id) %>
 <% end %>

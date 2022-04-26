@@ -1,5 +1,5 @@
 <h1>New poem</h1>
-<%= form_with model: @poems do |f|%>
+<%= form_with model: @poem do |f|%>
 <div> 
   <%= f.label :title%>
   <%= f.text_field :title, required: true, minlength: 2, placeholder: "title"%>
