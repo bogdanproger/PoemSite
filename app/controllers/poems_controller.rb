@@ -11,7 +11,15 @@ class PoemsController < ApplicationController
     else render :edit
     end
   end
+def destroy
+ @poem = Poem.find_by id: params[:id]
+ @poem.destroy
+ redirect_to poems_path
+end
 
+def show
+  @poem = Poem.find_by id: params[:id]
+end
 
 def index
   @poems = Poem.all

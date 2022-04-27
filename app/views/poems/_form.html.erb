@@ -1,0 +1,11 @@
+<%= form_with model: @poem do |f|%>
+<div> 
+  <%= f.label :title%>
+  <%= f.text_field :title, required: true, minlength: 2, placeholder: "title"%>
+</div>
+<div> 
+  <%= f.label :body%>
+  <%= f.text_area :body, placeholder: "body"%>
+</div>
+<%= f.submit "Submit poem!"%>
+<%end%>
