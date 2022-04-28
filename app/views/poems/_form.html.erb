@@ -1,11 +1,24 @@
+<%= render 'shared/errors', object: @poem%>
 <%= form_with model: @poem do |f|%>
-<div> 
-  <%= f.label :title%>
-  <%= f.text_field :title, required: true, minlength: 2, placeholder: "title"%>
+
+<div class="mb-3 row"> 
+  <div class="col-sm-2 col-form-label">
+    <%= f.label :title%>
+  </div>
+
+  <div class="col-sm-10">
+  <%= f.text_field :title, placeholder: "title" %>
+  </div>
 </div>
-<div> 
-  <%= f.label :body%>
+
+<div class="mb-3 row"> 
+  <div class="col-sm-2 col-form-label">
+  <%= f.label :body %>
+ </div>
+
+  <div class="col-sm-10">
   <%= f.text_area :body, placeholder: "body"%>
-</div>
-<%= f.submit "Submit poem!"%>
+  </div>
+</div>  
+<%= f.submit "Submit poem!", class: 'btn btn-primary'%>
 <%end%>

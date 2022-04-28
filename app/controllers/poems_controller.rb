@@ -7,6 +7,7 @@ class PoemsController < ApplicationController
   def update
     @poem = Poem.find_by id: params[:id]
     if @poem.update poem_params
+      flash[:success] = "Poem Updated!"
       redirect_to poems_path
     else render :edit
     end
@@ -14,6 +15,8 @@ class PoemsController < ApplicationController
 def destroy
  @poem = Poem.find_by id: params[:id]
  @poem.destroy
+ flash[:success] = "Poem Destroyed!"
+
  redirect_to poems_path
 end
 
@@ -32,6 +35,7 @@ end
 def create
   @poem = Poem.new poem_params
   if @poem.save
+    flash[:success] = "Poem Created!"
     redirect_to poems_path
   else render :new
   end
