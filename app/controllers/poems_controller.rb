@@ -1,11 +1,10 @@
 class PoemsController < ApplicationController
-
+before_action :find_poem, only: %i[show destroy edit update]
   def edit
-    @poem = Poem.find_by id: params[:id]
+    
   end
 
   def update
-    @poem = Poem.find_by id: params[:id]
     if @poem.update poem_params
       flash[:success] = "Poem Updated!"
       redirect_to poems_path
@@ -13,7 +12,7 @@ class PoemsController < ApplicationController
     end
   end
 def destroy
- @poem = Poem.find_by id: params[:id]
+ 
  @poem.destroy
  flash[:success] = "Poem Destroyed!"
 
@@ -21,7 +20,8 @@ def destroy
 end
 
 def show
-  @poem = Poem.find_by id: params[:id]
+ @comment = @poem.comments.build
+ @comments = Comment.order created_at: :desc
 end
 
 def index
@@ -46,5 +46,10 @@ private
 
 def poem_params
   params.require(:poem).permit(:title, :body)
+end
+
+def find_poem
+  @poem = Poem.find params[:id]
+
 end
 end

@@ -6,3 +6,28 @@
  <%= link_to 'Edit', edit_poem_path(@poem.id), class:'btn btn-secondary' %> 
   <%= link_to 'Destroy', poem_path(@poem.id), class:'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'} %>
   <%= link_to 'Show', poem_path(@poem.id), class:'btn btn-primary' %> 
+
+<hr class='mb-3'>
+<h2>Write your comment:</h2>
+<%= render 'shared/errors', object: @comment%>
+  <%= form_with model: [@poem, @comment] do |f|%>
+    <div class="mb-3 row"> 
+      <div class="col-sm-2 col-form-label">
+        <%= f.label :body %>
+      </div>
+
+      <div class="col-sm-10">
+      <%= f.text_area :body, placeholder: "body"%>
+       </div>
+    </div>  
+  <%= f.submit "Submit comment!", class: 'btn btn-primary'%>
+  <%end%>
+
+  <h2>Comments</h2>
+
+  <% @comments.each do |comment|%>
+  <p>
+  <%= comment.body %>
+  </p>
+  <%end%>
+ 
