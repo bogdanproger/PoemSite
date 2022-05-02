@@ -1,3 +1,5 @@
+<% provide :page_title, "Poems"%>
+<%currently_at 'Poems'%>
 <h1 class="mb-4">Poems</h1>
 <%= link_to 'New poem', new_poem_path, class:'btn btn-primary'%>
 <% @poems.each do |poem| %>
