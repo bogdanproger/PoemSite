@@ -26,8 +26,9 @@ class CommentsController < ApplicationController
   def update
     if @comment.update comment_params
       flash[:success] = "Comment Updated!"
-      redirect_to poem_path(@poem)
-    else render :edit
+      redirect_to poem_path(@poem, anchor: "comment-#{@comment.id}")
+    else 
+      render :edit
     end
   end
 

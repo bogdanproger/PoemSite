@@ -4,9 +4,9 @@
 
 <h1><%= @poem.title%></h1>
 
-<p>
-<%= @poem.body%>
-</p>
+<div class="lead-my-3">
+<%= sanitize @poem.body%>
+</div>
  <%= link_to 'Edit', edit_poem_path(@poem.id), class:'btn btn-secondary' %> 
   <%= link_to 'Destroy', poem_path(@poem.id), class:'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'} %>
   <%= link_to 'Show', poem_path(@poem.id), class:'btn btn-primary' %> 
@@ -18,11 +18,11 @@
   <h2 class="mt-5">Comments</h2>
 
   <% @comments.each do |comment|%>
-  <article class="mb-3 card">
+  <article class="mb-3 card" id="comment-<%= comment.id %>">
     <div class="card-body">
       <section class="card-text">
       <p class="mt-2 mb-3">
-        <%= comment.body %>
+        <%= sanitize comment.body %>
       </p>
       </section>
   <%= link_to 'Delete', poem_comment_path(@poem, comment), class:'btn btn-danger btn-sm',  data: {method: :delete, confirm: 'Are you sure?'}%>
