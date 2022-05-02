@@ -21,11 +21,11 @@ end
 
 def show
  @comment = @poem.comments.build
- @comments = @poem.comments.order created_at: :desc
+ @comments = @poem.comments.order(created_at: :desc).page(params[:page]).per(2)
 end
 
 def index
-  @poems = Poem.all
+  @poems = Poem.order(created_at: :desc).page params[:page]
 end
 
 def new

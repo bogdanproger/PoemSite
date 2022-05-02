@@ -16,6 +16,7 @@
 <%= render 'comments/form'%>
 
   <h2 class="mt-5">Comments</h2>
+  <%= paginate @comments%>
 
   <% @comments.each do |comment|%>
   <article class="mb-3 card" id="comment-<%= comment.id %>">
@@ -30,4 +31,4 @@
   </div>
   </article>
   <%end%>
- 
+ <%= paginate @comments%>

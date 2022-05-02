@@ -2,6 +2,7 @@
 <%currently_at 'Poems'%>
 <h1 class="mb-4">Poems</h1>
 <%= link_to 'New poem', new_poem_path, class:'btn btn-primary'%>
+<%= paginate @poems%>
 <% @poems.each do |poem| %>
   <article class="card">
     <div class="card-body">
@@ -19,3 +20,5 @@
     </div>
    </article>
 <% end %>
+
+<%= paginate @poems%>
