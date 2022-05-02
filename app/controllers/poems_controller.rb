@@ -21,7 +21,7 @@ end
 
 def show
  @comment = @poem.comments.build
- @comments = Comment.order created_at: :desc
+ @comments = @poem.comments.order created_at: :desc
 end
 
 def index
