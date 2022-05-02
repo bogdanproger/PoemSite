@@ -9,7 +9,7 @@
 
      <section class="card-text">
       <p class="my-2">
-        <%= strip_tags poem.body%>
+        <%= truncate strip_tags(poem.body), length: 50, omission: '... (continued)'%>
       </p>
      </section>
   <br>
