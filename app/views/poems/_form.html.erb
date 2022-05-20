@@ -20,5 +20,7 @@
   <%= f.text_area :body, placeholder: "body"%>
   </div>
 </div>  
+
+<%= f.select :category_id, Category.all.map {|c| [c.category, c.id]}%>
 <%= f.submit "Submit poem!", class: 'btn btn-primary'%>
 <%end%>

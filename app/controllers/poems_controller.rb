@@ -45,7 +45,7 @@ end
 private
 
 def poem_params
-  params.require(:poem).permit(:title, :body)
+  params.require(:poem).permit(:title, :body, :category_id)
 end
 
 def find_poem
