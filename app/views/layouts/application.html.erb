@@ -9,22 +9,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "style.css" %>
   </head>
 
-  <body >
-  
-  <div class="bg-image" 
-     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
-            height: 50vh;">
-</div>
-
-  <%= yield :main_menu%>
-
-  <main class="container mt-3">
-  <% flash.each do |k, v|%>
-   <%= tag.div v, class: "alert alert-#{k}", role: 'alert'%>
-    <%end%>
-    <%= yield %>
-  </main>
+  <body>
+    <%= yield :main_menu %>
+    
+    <main class="container mt-3">
+    <% flash.each do |k, v|%>
+     <%= tag.div v, class: "alert alert-#{k}", role: 'alert'%>
+      <%end%>
+      <%= yield %>
+    </main>
   </body>
 </html>

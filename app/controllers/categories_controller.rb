@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1 or /categories/1.json
   def show
+    @poems = @category.poems
   end
 
   # GET /categories/new

@@ -3,7 +3,7 @@
 <% provide :page_title, "Show poem"%>
 
 <h1><%= @poem.title%></h1>
-<%= @poem.category.category%>
+<%= @poem&.category&.category%>
 <div class="lead-my-3">
 <%= sanitize @poem.body%>
 </div>
